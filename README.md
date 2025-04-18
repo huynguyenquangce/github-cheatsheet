@@ -246,6 +246,116 @@ Dưới đây là các lệnh và flag thường dùng để kiểm tra lịch s
 
 ---
 
+# 📘 Quản Lý Nhánh trong Git
+
+Dưới đây là các lệnh và flag thường dùng khi làm việc với nhánh trong Git.
+
+---
+
+## 1. **Hiển Thị Danh Sách Nhánh**
+
+| Lệnh                           | Chức năng                                               | Ví dụ lệnh sử dụng |
+|---------------------------------|---------------------------------------------------------|--------------------|
+| `git branch`                    | Hiển thị danh sách tất cả các nhánh trong repository   | `git branch` |
+| `git branch -a`                 | Hiển thị tất cả các nhánh, bao gồm các nhánh remote    | `git branch -a` |
+
+> **Lưu ý**: Lệnh `git branch` chỉ hiển thị các nhánh local. Thêm flag `-a` để hiển thị cả các nhánh remote.
+
+---
+
+## 2. **Tạo Nhánh Mới**
+
+| Lệnh                           | Chức năng                                               | Ví dụ lệnh sử dụng |
+|---------------------------------|---------------------------------------------------------|--------------------|
+| `git branch <branch-name>`      | Tạo nhánh mới                                          | `git branch feature-xyz` |
+
+> **Lưu ý**: Nhánh mới sẽ được tạo từ nhánh hiện tại, nhưng bạn vẫn ở trên nhánh cũ cho đến khi chuyển sang nhánh mới.
+
+---
+
+## 3. **Chuyển Đổi Giữa Các Nhánh**
+
+| Lệnh                           | Chức năng                                               | Ví dụ lệnh sử dụng |
+|---------------------------------|---------------------------------------------------------|--------------------|
+| `git checkout <branch-name>`    | Chuyển sang nhánh đã tồn tại                           | `git checkout feature-xyz` |
+| `git switch <branch-name>`      | Chuyển sang nhánh đã tồn tại (dùng trong phiên bản Git 2.23 trở lên) | `git switch feature-xyz` |
+
+> **Lưu ý**: `git switch` là lệnh mới được giới thiệu trong Git 2.23, giúp thao tác chuyển nhánh dễ dàng hơn so với `git checkout`.
+
+---
+
+## 4. **Tạo và Chuyển Sang Nhánh Mới**
+
+| Lệnh                           | Chức năng                                               | Ví dụ lệnh sử dụng |
+|---------------------------------|---------------------------------------------------------|--------------------|
+| `git checkout -b <branch-name>` | Tạo và chuyển sang nhánh mới cùng lúc                   | `git checkout -b feature-xyz` |
+| `git switch -c <branch-name>`   | Tạo và chuyển sang nhánh mới cùng lúc (dùng trong Git 2.23+) | `git switch -c feature-xyz` |
+
+> **Lưu ý**: Cả hai lệnh này giúp bạn tạo nhánh mới và chuyển sang nhánh đó trong một bước duy nhất.
+
+---
+
+## 5. **Xóa Nhánh**
+
+| Lệnh                           | Chức năng                                               | Ví dụ lệnh sử dụng |
+|---------------------------------|---------------------------------------------------------|--------------------|
+| `git branch -d <branch-name>`   | Xóa nhánh local (nếu nhánh đã được merge)               | `git branch -d feature-xyz` |
+| `git branch -D <branch-name>`   | Xóa nhánh local ngay cả khi nhánh chưa được merge       | `git branch -D feature-xyz` |
+
+> **Lưu ý**: Sử dụng `-D` thay vì `-d` để xóa một nhánh mà không cần kiểm tra xem nó đã được merge chưa.
+
+---
+
+## 6. **Hiển Thị Nhánh Hiện Tại**
+
+| Lệnh                           | Chức năng                                               | Ví dụ lệnh sử dụng |
+|---------------------------------|---------------------------------------------------------|--------------------|
+| `git branch --show-current`     | Hiển thị nhánh hiện tại                                | `git branch --show-current` |
+
+> **Lưu ý**: Lệnh này giúp bạn nhanh chóng biết mình đang ở trên nhánh nào.
+
+---
+
+## 7. **Liệt Kê Các Nhánh Đã Được Merge và Chưa Merge**
+
+| Lệnh                           | Chức năng                                               | Ví dụ lệnh sử dụng |
+|---------------------------------|---------------------------------------------------------|--------------------|
+| `git branch --merged`           | Liệt kê các nhánh đã được merge vào nhánh hiện tại     | `git branch --merged` |
+| `git branch --no-merged`        | Liệt kê các nhánh chưa được merge vào nhánh hiện tại   | `git branch --no-merged` |
+
+> **Lưu ý**: Lệnh này giúp bạn xác định các nhánh đã hoặc chưa được merge vào nhánh hiện tại, từ đó đưa ra quyết định về việc xóa các nhánh không cần thiết.
+
+---
+
+## 8. **Kiểm Tra Nhánh Remote**
+
+| Lệnh                           | Chức năng                                               | Ví dụ lệnh sử dụng |
+|---------------------------------|---------------------------------------------------------|--------------------|
+| `git branch -r`                 | Hiển thị các nhánh remote                              | `git branch -r` |
+
+> **Lưu ý**: Lệnh này chỉ hiển thị các nhánh remote mà bạn đang theo dõi.
+
+---
+
+## 9. **Đổi Tên Nhánh**
+
+| Lệnh                           | Chức năng                                               | Ví dụ lệnh sử dụng |
+|---------------------------------|---------------------------------------------------------|--------------------|
+| `git branch -m <new-branch-name>` | Đổi tên nhánh hiện tại                                | `git branch -m feature-xyz feature-abc` |
+
+> **Lưu ý**: Lệnh này giúp bạn đổi tên nhánh mà bạn đang làm việc trên đó.
+
+---
+
+## 📌 **Lưu ý quan trọng**:
+
+- Khi làm việc với nhánh, hãy luôn chắc chắn rằng bạn đã commit hoặc stashed mọi thay đổi trước khi chuyển nhánh, để tránh mất dữ liệu.
+- Sử dụng `git branch -d` để xóa nhánh đã được merge. Tuy nhiên, nếu nhánh chưa được merge và bạn muốn xóa nó, dùng `git branch -D`.
+- Với các phiên bản Git từ 2.23 trở lên, bạn nên sử dụng `git switch` và `git restore` thay vì `git checkout` để dễ sử dụng hơn.
+
+---
+
+
 
 
 
