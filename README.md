@@ -164,4 +164,88 @@ Dưới đây là các lệnh và flag thường dùng khi kết nối giữa lo
 
 ---
 
+# 📘 Checking history commit
+
+Dưới đây là các lệnh và flag thường dùng để kiểm tra lịch sử commit trong Git.
+
+---
+
+## 1. **Kiểm Tra Lịch Sử Commit**
+
+| Lệnh                           | Chức năng                                               | Ví dụ lệnh sử dụng |
+|---------------------------------|---------------------------------------------------------|--------------------|
+| `git log`                       | Hiển thị lịch sử commit từ mới nhất                      | `git log` |
+| `git log --oneline`             | Hiển thị lịch sử commit theo dạng rút gọn (1 dòng mỗi commit) | `git log --oneline` |
+
+> **Lưu ý**: Lệnh `git log` hiển thị chi tiết lịch sử commit, bao gồm mã hash của commit, tác giả, ngày tháng và thông điệp commit. Flag `--oneline` giúp rút gọn, hiển thị mỗi commit trên một dòng.
+
+---
+
+## 2. **Hiển Thị Lịch Sử Commit Có Thời Gian hoặc Tác Giả Cụ Thể**
+
+| Lệnh                           | Chức năng                                               | Ví dụ lệnh sử dụng |
+|---------------------------------|---------------------------------------------------------|--------------------|
+| `git log --author`              | Hiển thị các commit của một tác giả cụ thể               | `git log --author="Huy"` |
+| `git log --since`               | Hiển thị các commit từ một thời gian cụ thể             | `git log --since="2024-01-01"` |
+| `git log --until`               | Hiển thị các commit đến một thời gian cụ thể             | `git log --until="2024-04-01"` |
+
+> **Lưu ý**: Các flag này cho phép bạn lọc lịch sử commit dựa trên tác giả hoặc thời gian. Cả `--since` và `--until` hỗ trợ nhiều định dạng thời gian khác nhau.
+
+---
+
+## 3. **Hiển Thị Lịch Sử Commit Với Diff**
+
+| Lệnh                           | Chức năng                                               | Ví dụ lệnh sử dụng |
+|---------------------------------|---------------------------------------------------------|--------------------|
+| `git log -p`                    | Hiển thị lịch sử commit cùng với thay đổi (diff) trong mỗi commit | `git log -p` |
+| `git log --stat`                | Hiển thị lịch sử commit với thống kê thay đổi về file (số lượng dòng thêm/sửa) | `git log --stat` |
+
+> **Lưu ý**: Flag `-p` hiển thị toàn bộ thay đổi (diff) của các commit, còn `--stat` chỉ hiển thị thống kê về các thay đổi ở mức file (chứ không phải chi tiết nội dung).
+
+---
+
+## 4. **Lịch Sử Commit Theo Nhánh Cụ Thể**
+
+| Lệnh                           | Chức năng                                               | Ví dụ lệnh sử dụng |
+|---------------------------------|---------------------------------------------------------|--------------------|
+| `git log <branch>`              | Hiển thị lịch sử commit của nhánh cụ thể                 | `git log feature-branch` |
+
+> **Lưu ý**: Thay `<branch>` bằng tên nhánh bạn muốn kiểm tra lịch sử commit. Ví dụ, `git log main` sẽ hiển thị lịch sử commit của nhánh `main`.
+
+---
+
+## 5. **Hiển Thị Lịch Sử Commit Với Các Điều Kiện Tìm Kiếm Phức Tạp**
+
+| Lệnh                           | Chức năng                                               | Ví dụ lệnh sử dụng |
+|---------------------------------|---------------------------------------------------------|--------------------|
+| `git log --grep`                | Tìm commit theo thông điệp commit (message)             | `git log --grep="fix bug"` |
+
+> **Lưu ý**: Dùng `--grep` để tìm commit dựa trên từ khóa trong message. Ví dụ, `git log --grep="bug"` sẽ tìm tất cả các commit có từ "bug" trong thông điệp.
+
+---
+
+## 6. **Lịch Sử Commit Theo Thời Gian và Các Thông Số Khác**
+
+| Lệnh                           | Chức năng                                               | Ví dụ lệnh sử dụng |
+|---------------------------------|---------------------------------------------------------|--------------------|
+| `git log --reverse`             | Hiển thị lịch sử commit theo thứ tự ngược lại (cũ nhất trước, mới nhất sau) | `git log --reverse` |
+| `git log --graph`               | Hiển thị lịch sử commit dưới dạng đồ thị, thể hiện nhánh và hợp nhất | `git log --graph` |
+| `git log --abbrev-commit`       | Hiển thị hash commit rút gọn thay vì toàn bộ hash       | `git log --abbrev-commit` |
+
+> **Lưu ý**: 
+> - `--reverse` giúp bạn xem commit từ cũ nhất đến mới nhất.
+> - `--graph` tạo đồ thị hiển thị cấu trúc nhánh của các commit, rất hữu ích khi làm việc với các nhánh phức tạp.
+
+---
+
+## 📌 **Lưu ý quan trọng**:
+
+- Bạn có thể kết hợp các flag này với nhau để tạo ra các câu lệnh tùy chỉnh. Ví dụ: `git log --oneline --author="Huy" --since="2024-01-01"`.
+- Lệnh `git log` có thể tốn thời gian nếu bạn có lịch sử commit quá dài. Hãy sử dụng các filter như `--since`, `--until`, hoặc `--author` để giảm phạm vi tìm kiếm.
+- Dùng `git log --graph --oneline` khi bạn cần có cái nhìn trực quan về lịch sử nhánh và các commit.
+
+---
+
+
+
 
