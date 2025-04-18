@@ -60,3 +60,108 @@ Dưới đây là các flag thường dùng với lệnh `git push`, kèm theo v
 
 ---
 
+# 📘 Kết nối giữa Local Repository và Remote Repository
+
+Dưới đây là các lệnh và flag thường dùng khi kết nối giữa local repository và remote repository.
+
+---
+
+## 1. **Thêm Remote Repository**
+
+| Lệnh                           | Chức năng                                            | Ví dụ lệnh sử dụng |
+|---------------------------------|------------------------------------------------------|--------------------|
+| `git remote add`                | Thêm remote repository vào local repository          | `git remote add origin git@github.com:user/repo.git` |
+
+> **Lưu ý**: `origin` là tên mặc định của remote repository. Bạn có thể thay thế bằng tên khác nếu muốn.
+
+---
+
+## 2. **Kiểm tra Remote Repository**
+
+| Lệnh                           | Chức năng                                            | Ví dụ lệnh sử dụng |
+|---------------------------------|------------------------------------------------------|--------------------|
+| `git remote -v`                 | Kiểm tra các remote repository được liên kết         | `git remote -v` |
+
+> **Lưu ý**: Lệnh này hiển thị tên remote và URL của repository liên kết.
+
+---
+
+## 3. **Thay đổi URL của Remote Repository**
+
+| Lệnh                           | Chức năng                                            | Ví dụ lệnh sử dụng |
+|---------------------------------|------------------------------------------------------|--------------------|
+| `git remote set-url`            | Thay đổi URL của remote repository                   | `git remote set-url origin git@github.com:user/new-repo.git` |
+
+> **Lưu ý**: Dùng khi bạn muốn thay đổi remote repository sau khi đã thêm hoặc để thay đổi URL (ví dụ khi chuyển từ HTTPS sang SSH).
+
+---
+
+## 4. **Xóa Remote Repository**
+
+| Lệnh                           | Chức năng                                            | Ví dụ lệnh sử dụng |
+|---------------------------------|------------------------------------------------------|--------------------|
+| `git remote remove`             | Xóa một remote repository khỏi local repository      | `git remote remove origin` |
+
+> **Lưu ý**: Lệnh này xóa remote `origin` khỏi local repository. Cẩn thận khi sử dụng.
+
+---
+
+## 5. **Kiểm tra Tình Trạng Kết Nối Remote**
+
+| Lệnh                           | Chức năng                                            | Ví dụ lệnh sử dụng |
+|---------------------------------|------------------------------------------------------|--------------------|
+| `git remote show`               | Hiển thị thông tin chi tiết về remote repository     | `git remote show origin` |
+
+> **Lưu ý**: Lệnh này cung cấp thông tin chi tiết về remote repository, bao gồm URL và các nhánh đang được theo dõi.
+
+---
+
+## 6. **Pull Dữ Liệu từ Remote Repository**
+
+| Lệnh                           | Chức năng                                            | Ví dụ lệnh sử dụng |
+|---------------------------------|------------------------------------------------------|--------------------|
+| `git pull`                      | Kéo dữ liệu mới từ remote repository về local       | `git pull origin main` |
+
+> **Lưu ý**: `git pull` kết hợp giữa `git fetch` và `git merge`, giúp đồng bộ dữ liệu giữa local và remote.
+
+---
+
+## 7. **Push Dữ Liệu Lên Remote Repository**
+
+| Lệnh                           | Chức năng                                            | Ví dụ lệnh sử dụng |
+|---------------------------------|------------------------------------------------------|--------------------|
+| `git push`                      | Đẩy thay đổi từ local lên remote repository          | `git push origin main` |
+
+> **Lưu ý**: Khi bạn thực hiện `git push`, chắc chắn rằng bạn đã commit thay đổi của mình.
+
+---
+
+## 8. **Kết Nối và Thiết Lập Upstream Branch**
+
+| Lệnh                           | Chức năng                                            | Ví dụ lệnh sử dụng |
+|---------------------------------|------------------------------------------------------|--------------------|
+| `git push -u`                   | Thiết lập nhánh upstream khi push lần đầu           | `git push -u origin feature-branch` |
+
+> **Lưu ý**: Sau khi thiết lập upstream, bạn chỉ cần sử dụng `git push` mà không cần chỉ định remote và nhánh nữa.
+
+---
+
+## 9. **Kiểm tra Liên Kết Remote**
+
+| Lệnh                           | Chức năng                                            | Ví dụ lệnh sử dụng |
+|---------------------------------|------------------------------------------------------|--------------------|
+| `git config --get remote.origin.url` | Kiểm tra URL của remote repository hiện tại    | `git config --get remote.origin.url` |
+
+> **Lưu ý**: Lệnh này giúp bạn xác định chính xác URL của remote repository mà bạn đang làm việc.
+
+---
+
+## 📌 **Lưu ý quan trọng:**
+
+- Khi bạn thêm hoặc thay đổi remote repository, hãy chắc chắn kiểm tra lại với lệnh `git remote -v` để đảm bảo đúng URL.
+- Mỗi khi bạn thay đổi nhánh hoặc làm việc với nhiều remote repository, hãy chắc chắn rằng bạn đã thiết lập nhánh upstream với `git push -u`.
+- Việc cấu hình đúng remote URL là rất quan trọng để tránh các lỗi khi thực hiện `git push` hoặc `git pull`.
+
+---
+
+
