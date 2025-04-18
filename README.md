@@ -40,7 +40,6 @@ Dưới đây là các flag thường dùng với lệnh `git push`, kèm theo v
 | `--delete`        | Xóa nhánh trên remote (giống `git branch -d` nhưng với remote)          | `git push --delete origin feature-branch` |
 | `--set-upstream`  | Cài đặt nhánh upstream cho nhánh local                                  | `git push --set-upstream origin feature-branch` |
 | `--quiet`         | Giảm thiểu thông báo khi push                                            | `git push --quiet` |
-| `-f`                   | Lực đẩy (force push), thay thế lịch sử remote branch | `git push -f origin main` |
 
 ---
 
