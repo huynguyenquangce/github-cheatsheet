@@ -40,6 +40,7 @@ Dưới đây là các flag thường dùng với lệnh `git push`, kèm theo v
 | `--delete`        | Xóa nhánh trên remote (giống `git branch -d` nhưng với remote)          | `git push --delete origin feature-branch` |
 | `--set-upstream`  | Cài đặt nhánh upstream cho nhánh local                                  | `git push --set-upstream origin feature-branch` |
 | `--quiet`         | Giảm thiểu thông báo khi push                                            | `git push --quiet` |
+| `-f`                   | Lực đẩy (force push), thay thế lịch sử remote branch | `git push -f origin main` |
 
 ---
 
@@ -51,7 +52,7 @@ Dưới đây là các flag thường dùng với lệnh `git push`, kèm theo v
 - `--tags`: Dùng khi bạn muốn đẩy tất cả các tags (thường dùng trong release).
 - `--dry-run`: Lệnh giả lập (không thực hiện thay đổi) cho phép bạn kiểm tra những gì sẽ được đẩy lên remote mà không thay đổi gì.
 - `--delete`: Dùng để xóa một nhánh trên remote, ví dụ khi nhánh đã hoàn thành và không cần nữa.
-
+- `-f`: Lệnh **force push**, cho phép bạn đẩy dữ liệu lên remote ngay cả khi lịch sử commit của bạn có sự thay đổi. Lệnh này rất mạnh mẽ và có thể gây hại nếu bạn không cẩn thận, vì nó thay thế lịch sử của nhánh trên remote.
 ---
 
 📌 **Lưu ý**:
