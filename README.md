@@ -355,6 +355,88 @@ Dưới đây là các lệnh và flag thường dùng khi làm việc với nh�
 
 ---
 
+# 🔀 Git Merge - Hợp Nhánh trong Git
+
+Sử dụng `git merge` để kết hợp thay đổi từ một nhánh khác vào nhánh hiện tại.
+
+---
+
+## 1. **Merge Nhánh Vào Nhánh Hiện Tại**
+
+| Lệnh                               | Chức năng                                                     | Ví dụ sử dụng |
+|------------------------------------|----------------------------------------------------------------|---------------|
+| `git merge <branch-name>`          | Gộp thay đổi từ nhánh chỉ định vào nhánh hiện tại              | `git merge feature-login` |
+
+> **📌 Lưu ý:** Trước khi merge, nên đảm bảo bạn đang ở đúng nhánh **đích** (`main`, `master`, v.v).
+
+---
+
+## 2. **Kiểm Tra Trước Khi Merge**
+
+| Lệnh                              | Chức năng                                     | Ví dụ sử dụng |
+|-----------------------------------|------------------------------------------------|---------------|
+| `git log --oneline --graph --all` | Xem sơ đồ các commit, dễ hình dung merge      | `git log --oneline --graph --all` |
+| `git diff <branch-name>`          | So sánh sự khác biệt với nhánh khác            | `git diff feature-login` |
+
+---
+
+## 3. **Xử Lý Conflict Khi Merge**
+
+| Lệnh                              | Chức năng                                             | Ví dụ sử dụng |
+|-----------------------------------|--------------------------------------------------------|---------------|
+| `git status`                      | Kiểm tra các file bị conflict                        | `git status` |
+| (Chỉnh sửa file xung đột)         | Chỉnh sửa nội dung trong các file bị conflict        | – |
+| `git add <file>`                  | Đánh dấu đã giải quyết conflict cho file đó          | `git add main.cpp` |
+| `git commit`                      | Commit sau khi merge nếu có conflict                 | `git commit -m "Resolve conflict"` |
+
+> 🧠 **Tip:** Git đánh dấu các vùng bị conflict bằng `<<<<<<<`, `=======`, và `>>>>>>>`. Bạn cần sửa tay rồi lưu lại.
+
+---
+
+## 4. **Merge Không Tạo Commit (Fast-forward)**
+
+| Lệnh                                       | Chức năng                                                     | Ví dụ sử dụng |
+|--------------------------------------------|----------------------------------------------------------------|---------------|
+| `git merge --ff-only <branch-name>`        | Chỉ merge nếu có thể fast-forward, ngược lại sẽ báo lỗi       | `git merge --ff-only feature-login` |
+
+> 📌 Dùng để đảm bảo lịch sử Git luôn tuyến tính, tránh commit merge không cần thiết.
+
+---
+
+## 5. **Luôn Tạo Commit Khi Merge**
+
+| Lệnh                                 | Chức năng                                     | Ví dụ sử dụng |
+|--------------------------------------|------------------------------------------------|---------------|
+| `git merge --no-ff <branch-name>`    | Luôn tạo commit merge để giữ lịch sử rõ ràng  | `git merge --no-ff feature-ui` |
+
+> 🧠 Dùng trong các dự án cần lịch sử rõ ràng, đặc biệt khi code review.
+
+---
+
+## 6. **Huỷ Merge Nếu Gặp Conflict**
+
+| Lệnh                    | Chức năng                          | Ví dụ sử dụng |
+|-------------------------|-------------------------------------|---------------|
+| `git merge --abort`     | Hủy merge và quay lại trạng thái trước đó | `git merge --abort` |
+
+> ⚠️ Chỉ dùng được khi đang trong trạng thái merge chưa xong (có conflict).
+
+---
+
+## 7. **Commit Sau Khi Merge**
+
+| Lệnh                              | Chức năng                                     | Ví dụ sử dụng |
+|-----------------------------------|------------------------------------------------|---------------|
+| `git commit`                      | Tạo commit sau khi giải quyết conflict        | `git commit -m "Merge feature-login into main"` |
+
+---
+
+## 🧪 Ví dụ thực tế
+
+```bash
+# Đang ở nhánh main, muốn merge nhánh feature-login vào
+git checkout main
+git merge feature-login
 
 
 
